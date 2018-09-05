@@ -1,3 +1,5 @@
+/*项目基础的一些配置信息放在在这里*/
+
 'use strict'
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
