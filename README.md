@@ -1,6 +1,9 @@
 # travel
 
 > A Vue.js project
+### 注意:
+1.修改webpack的配置后,需要重启一下服务,否则报错;
+
 
 ## Build Setup
 
