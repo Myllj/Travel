@@ -1,16 +1,20 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import Home from '@/pages/home/Home'
+import Vue from 'vue' //引入Vue
+import Router from 'vue-router' //引入vue-router
+import Home from '@/pages/home/Home' 
 
-Vue.use(Router)
+Vue.use(Router) //Vue全局使用Router
 
+/*
+组件名命名首写字母建议都大写;
+"/"代表根路径,要访问同级目录文件夹下的组件,直接"/xxx组件名"的格式访问即可;
+*/
 export default new Router({
-  routes: [
+  routes: [   //配置路由，这里是个数组
     {
-      path: '/',
-      name: 'Home',
-      component: Home
-    }
+      path: '/',  //链接路径
+      name: 'Home',  //路由名称，
+      component: Home //对应的组件模板
+     }
+    
   ]
 })

@@ -1,24 +1,22 @@
+
 <template>
-<div class="homo">
-  {{ msg }}
-</div>
+  <div>
+    <Homeheader></Homeheader> <!-- 模板里使用Homeheader组件 -->
+  </div>
 </template>
 
 <script>
+//引入Homeheader组件，'Homeheader'为引入的组件名，自己自定义的名字，可以随意起，不一定要与'Header.vue'组件里的name一样,但是注册的组件名与模板里使用的标签名必须与之一致；
+import Homeheader from './components/Header' 
   export default({
     name:'Home',
-    data(){
-      return {
-        msg:"你好啊"
-      }
+    components:{
+      Homeheader//es6里键和值一样，可以直接写值
     }
 
   })
 </script>
 
 <style>
-.home{
-  font-size: 60px;
-  color:red;
-  }
+
 </style>
