@@ -4,6 +4,8 @@
     <Homeheader></Homeheader>  <!-- 模板里使用Homeheader组件 -->
     <HomeSwiper></HomeSwiper>
     <HomeIcons></HomeIcons>
+    <HomeRecommend></HomeRecommend>
+    <HomeWeekend></HomeWeekend>
   </div>
 </template>
 
@@ -12,12 +14,16 @@
 import Homeheader from './components/Header'
 import HomeSwiper from './components/Swiper'
 import HomeIcons from './components/Icons'
+import HomeRecommend from './components/Recommend'
+import HomeWeekend from './components/Weekend'
   export default({
     name:'Home',
     components:{
       Homeheader,//注册组件(es6里键和值一样，可以直接写值)
       HomeSwiper,
-      HomeIcons
+      HomeIcons,
+      HomeRecommend,
+      HomeWeekend
     }
 
   })
