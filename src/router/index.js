@@ -1,6 +1,6 @@
 import Vue from 'vue' //引入Vue
 import Router from 'vue-router' //引入vue-router
-import Home from '@/pages/home/Home' 
+import Home from '@/pages/home/Home' //引入Home组件
 
 Vue.use(Router) //Vue全局使用Router
 

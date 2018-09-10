@@ -2,9 +2,9 @@
 <template>
 <div class="wrap">
   <swiper :options="swiperOption" ref="mySwiper">
-    <swiper-slide v-for="item of swiperList">
-      <img 
-      class="swiper-img" 
+    <swiper-slide v-for="item in swiperList" :key="item.id">
+      <img
+      class="swiper-img"
       :src="item.imgUrl">
     </swiper-slide>
     <div class="swiper-pagination"  slot="pagination"></div>
@@ -41,9 +41,11 @@
 .wrap
   overflow:hidden
   width:100%
-  height:0
-  padding-bottom:31.25%
+  // height:0
+  // padding-bottom:31.25%
+  height:2rem
   .swiper-img
     width:100%
+   
 
 </style>
