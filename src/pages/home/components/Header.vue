@@ -9,7 +9,7 @@
         输入城市/景点/游玩主题
       </div>
       <div class="header-right">
-        城市
+      北京
          <span class="iconfont arrow-icon">&#xe64a;</span>
       </div>
   </div>
@@ -17,6 +17,9 @@
 
 <script>
   export default({
+    props:{
+      city:String
+    },
     name:'Homeheader', //组件名称，自定义的，随便怎么起名字
   })
 </script>

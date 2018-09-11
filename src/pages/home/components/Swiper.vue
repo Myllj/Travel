@@ -15,22 +15,18 @@
 <script>
   export default({
     name:'HomeSwiper',
+     props: {//接收父组件传过来的值
+      swiperList: Array
+    },
     data(){
         return {
           swiperOption:{
             pagination:".swiper-pagination",
             loop: true,
             autoplay:3000
-          },
-          swiperList:[{
-            id:"0001",
-            imgUrl:"http://img1.qunarzz.com/piao/fusion/1808/59/371af39a4ca5702.jpg_750x200_1a9cfe57.jpg"
-          },{
-            id:"0002",
-            imgUrl:"http://img1.qunarzz.com/piao/fusion/1805/e8/14b75b1c81fbe702.jpg_750x200_e6d4f1f1.jpg"
-          }]
+          }
         }
-    }
+    },
   })
 </script>
 
@@ -46,6 +42,7 @@
   height:2rem
   .swiper-img
     width:100%
+    height:2rem
    
 
 </style>

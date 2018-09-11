@@ -12,6 +12,7 @@ import './assets/styles/border.css' //引入解决移动端1px问题的border.cs
 import './assets/styles/iconfont.css' //引入字符图标css
 import 'swiper/dist/css/swiper.css' //引用'vue-awesome-swiper'插件的css文件
 
+
 Vue.config.productionTip = false
 fastClick.attach(document.body) //使用fastClick，把其绑定到document.body上
 Vue.use(VueAwesomeSwiper)
