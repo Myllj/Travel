@@ -1,6 +1,8 @@
 import Vue from 'vue' //引入Vue
 import Router from 'vue-router' //引入vue-router
 import Home from '@/pages/home/Home' //引入Home组件
+import City from '@/pages/city/City'
+
 
 Vue.use(Router) //Vue全局使用Router
 
@@ -15,6 +17,10 @@ export default new Router({
       path: '/',  //链接路径
       name: 'Home',  //路由名称，
       component: Home //对应的组件模板
+     },{
+       path:"/city",
+       name:"City",
+       component:City
      }
     
   ]
