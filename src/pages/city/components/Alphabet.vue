@@ -1,23 +1,21 @@
 <template>
-    <ul class="list">
-      <li class="item">A</li>
-      <li class="item">A</li>
-      <li class="item">A</li>
-      <li class="item">A</li>
-      <li class="item">A</li>
-      <li class="item">A</li>
+    <ul class="list-sidebar">
+      <li class="item" v-for="(item,key) in cityList" :key="key">{{key}}</li>
     </ul>
 </template>
 
 <script>
   export default {
-    name: 'CityAlphabet'
+    name: 'CityAlphabet',
+     props:{
+      cityList:Object
+    },
   }
 </script>
 
 <style scoped lang='stylus' type='text/stylus'>
   @import "~styles/variables.styl"
-  .list
+  .list-sidebar
     display flex
     flex-direction column
     justify-content center

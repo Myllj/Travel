@@ -1,3 +1,4 @@
+//生产环境构建
 'use strict'
 require('./check-versions')()
 

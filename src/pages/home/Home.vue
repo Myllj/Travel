@@ -40,15 +40,15 @@ export default {
   },
   methods: {
     getHomeInfo() {
-      let _that=this;//注意:在外面要事先保存this,因为下面axios的方法里获取不到,作用域问题
+      let that=this;//注意:在外面要事先保存this,因为下面axios的方法里获取不到,作用域问题
       axios.get("api/index.json").then(function(res) {
         res = res.data;
         let data = res.data;
         if (res.ret && data) {
-          _that.swiperList = data.swiperList;
-          _that.iconList = data.iconList;
-          _that.RecommendList=data.recommendList;
-          _that.weekendList=data.weekendList;
+          that.swiperList = data.swiperList;
+          that.iconList = data.iconList;
+          that.RecommendList=data.recommendList;
+          that.weekendList=data.weekendList;
         }
       }).catch(function(err){//捕获错误
         console.log('请求错误,请检查原因')

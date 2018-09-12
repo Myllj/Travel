@@ -1,3 +1,4 @@
+//构建相关工具
 'use strict'
 const path = require('path')
 const config = require('../config')

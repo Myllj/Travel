@@ -1,3 +1,4 @@
+//webpack基础配置
 'use strict'
 const path = require('path')
 const utils = require('./utils')
