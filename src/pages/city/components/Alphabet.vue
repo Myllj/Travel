@@ -21,7 +21,7 @@
     },
     data(){
       return{
-        ActiveIndex:0,//默认点中的index
+        ActiveIndex:0,//默认点中的index(给点中的添加active)
         touchState:false,//定义一个开关,判断手指是否触碰
         startY:0//右侧A字母距离顶部的距离(初始值)
       }
