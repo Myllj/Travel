@@ -2,8 +2,9 @@
   <div>
     <CityHeader></CityHeader>
     <CitySearch></CitySearch>
-    <CityList :hotCity="hotCity" :cityList="cityList"></CityList>
-    <CityAlphabet :cityList="cityList"></CityAlphabet>
+    <CityList :hotCity="hotCity" :cityList="cityList" :letter="letter"></CityList>
+    <!-- change事件是在子组件定义的,命名自定义，但要和子组件"$emit(xxx事件名)"方法里的事件名相同 -->
+    <CityAlphabet :cityList="cityList" @change="getData"></CityAlphabet>
   </div>
 </template>
 
@@ -25,7 +26,8 @@ export default {
   data(){
     return {
       hotCity:[],
-      cityList:{}
+      cityList:{},
+      letter:""//向子组件传递的List.vue传递的值
       
     }
   },
@@ -45,6 +47,9 @@ export default {
       }).catch(function(err){
         console.log('请求错误,请检查原因')
       })
+    },
+    getData(letter){
+     this.letter=letter;
     }
   }
 }

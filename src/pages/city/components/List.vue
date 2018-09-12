@@ -18,7 +18,7 @@
             </div>
           </div>
         </div>
-        <div class="area" v-for="(item,key) in cityList" :key="key">
+        <div class="area" v-for="(item,key) in cityList" :key="key" :ref="key">
           <div class="title border-topbottom">{{key}}</div>
           <div class="item-list">
             <div class="item border-bottom" v-for="option in item" :key="option.id">{{option.name}}</div>
@@ -35,11 +35,18 @@
     name: 'CityList',
     props:{
       hotCity:Array,
-      cityList:Object
+      cityList:Object,
+      letter:String
     },
     mounted() {
       this.scroll = new Bscroll(this.$refs.wrapper)//this.$refs.wrapper获得在模板绑定ref属性的Dom元素
-    }
+    },
+    watch:{
+      letter(){//监听父组件传过来的letter值的变化
+        let element=this.$refs[this.letter][0];//获取点中字母与左侧列表区域对应字母的Dom元素
+        this.scroll.scrollToElement(element)//该方法可以使右侧点中字母，左侧滚动到对应字母区域
+      }
+      }
   }
 </script>
 
