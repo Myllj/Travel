@@ -1,18 +1,53 @@
 <template>
+<div>
     <div class="search">
-      <input class="search-input" type="text" placeholder="输入城市名或拼音">
+      <input v-model="keyWord" class="search-input" type="text" placeholder="输入城市名或拼音">
     </div>
+    <div class="search-content" v-show="keyWord">
+        <ul>
+            <li class="search-item border-bottom" v-for="item in searchList" :key="item.id">{{item.name}}</li>
+            <li class="search-item border-bottom" v-show="!searchList.length">没有找到匹配得选项</li>
+        </ul>
+    </div>
+</div>
 </template>
 
 <script>
     export default {
-        name: 'CitySearch'
+        name: 'CitySearch',
+        props:{
+            cityList:Object
+        },
+        data(){
+            return{
+                    keyWord:'',//搜索框关键词
+                    searchList:[]
+            }
+        },
+        watch:{
+            keyWord(){
+                let result=[];
+                if(this.keyWord==""){//如果搜索栏为空就清空searchList
+                    this.searchList=[];
+                    return
+                }
+                for(let i in this.cityList){//循环的得到得数据对象
+                    this.cityList[i].forEach(val => {//再循环数据对象里得数组
+                        if(val.spell.indexOf(this.keyWord)>-1||val.name.indexOf(this.keyWord)>-1){//判断每个对象里得value值是否与搜索栏得匹配
+                            result.push(val)
+                        }
+                    });
+                }
+                this.searchList=result
+            }
+        }
+
     }
 </script>
 
 <style scoped lang='stylus' type='text/stylus'>
   @import "~styles/variables.styl"
-  .search
+.search
     height .72rem
     padding 0 .1rem
     background $bgColor
@@ -25,4 +60,20 @@
       text-align center
       color #666
       border-radius .06rem
+.search-content
+    position:absolute
+    z-index:9999
+    top:1.58rem
+    left:0
+    right:0
+    bottom:0
+    background: #eee
+    .search-item
+        height .68rem
+        line-height .68rem
+        color balck
+        padding-left .1rem 
+    .border-bottom
+        border-bottom:.01rem solid #cccccc57
+
 </style>

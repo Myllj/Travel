@@ -1,7 +1,7 @@
 <template>
   <div>
     <CityHeader></CityHeader>
-    <CitySearch></CitySearch>
+    <CitySearch :cityList="cityList"></CitySearch>
     <CityList :hotCity="hotCity" :cityList="cityList" :letter="letter"></CityList>
     <!-- change事件是在子组件定义的,命名自定义，但要和子组件"$emit(xxx事件名)"方法里的事件名相同 -->
     <CityAlphabet :cityList="cityList" @change="getData"></CityAlphabet>
