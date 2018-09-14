@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <Homeheader :city="city"></Homeheader>  <!-- 模板里使用Homeheader组件,:city="city"在父组件向子组件传值,是通过绑定属性形式的 -->
+    <Homeheader></Homeheader>  <!-- 模板里使用Homeheader组件,:city="city"在父组件向子组件传值,是通过绑定属性形式的 -->
     <HomeSwiper :swiperList="swiperList"></HomeSwiper>
     <HomeIcons :iconList="iconList"></HomeIcons>
     <HomeRecommend :RecommendList="RecommendList"></HomeRecommend>
@@ -25,7 +25,6 @@ export default {
       iconList:[],
       RecommendList:[],
       weekendList:[],
-      city:""
     }
   },
   components: {

@@ -10,7 +10,8 @@
       </div>
       <router-link to="/city">
       <div class="header-right">
-        北京
+       <!-- 北京 -->
+       {{this.city}}
          <span class="iconfont arrow-icon">&#xe64a;</span>
       </div>
       </router-link>
@@ -18,11 +19,12 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';//引入vuex提供的mapState方法,mapState方法把stroe.js中的值，赋值给我们模板
   export default({
-    props:{
-      city:String
-    },
     name:'Homeheader', //组件名称，自定义的，随便怎么起名字
+    computed:{
+      ...mapState(['city'])//扩展运算符...mapState,意思是把vuex的state数据映射到计算属性里面,映射后的名字为city,所以上面直接用this.city,就不用写this.$store.state.city这个长串了
+    }
   })
 </script>
 
@@ -32,6 +34,7 @@
 // "variables.styl"为公共的样式文件,在样式里引用样式文件,"import"前要加"@"符号
 //"@"代表"src"目录,但是在style里使用需在前添加"~"波浪符号,'stules'代表'src/assets/styles'目录(在webpack.base.conf.js文件里配置好的),所以下方路径可以写成"~styles/xxx.xx"
 @import "~styles/variables.styl" 
+
   .header
     display:flex 
     line-height:$headerHeight
@@ -55,7 +58,8 @@
       box-sizing:border-box
       color:#ccc
     .header-right
-      width:1.24rem
+      min-width:1.04rem
+      padding 0 .1rem
       float:right
       text-align:center
       color #fff

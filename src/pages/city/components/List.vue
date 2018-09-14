@@ -6,7 +6,7 @@
           <div class="title border-topbottom">当前城市</div>
           <div class="button-list">
             <div class="button-wrapper">
-              <button class="button">北京</button>
+              <button class="button">{{this.$store.state.city}}</button>
             </div>
           </div>
         </div>
@@ -14,14 +14,14 @@
           <div class="title border-topbottom">热门城市</div>
           <div class="button-list">
             <div class="button-wrapper" v-for="item in hotCity" :key="item.id">
-              <button class="button">{{item.name}}</button>
+              <button class="button" @click="CityClick(item.name)">{{item.name}}</button>
             </div>
           </div>
         </div>
         <div class="area" v-for="(item,key) in cityList" :key="key" :ref="key">
           <div class="title border-topbottom">{{key}}</div>
           <div class="item-list">
-            <div class="item border-bottom" v-for="option in item" :key="option.id">{{option.name}}</div>
+            <div class="item border-bottom" v-for="option in item" :key="option.id" @click="CityClick(option.name)">{{option.name}}</div>
           </div>
         </div>
       </div>
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-
+  import { mapState,mapMutations } from 'vuex';
   import Bscroll from 'better-scroll'//引入better-scroll'插件，使得城市列表部分可以上下滚动
   export default {
     name: 'CityList',
@@ -37,6 +37,11 @@
       hotCity:Array,
       cityList:Object,
       letter:String
+    },
+    computed:{
+       ...mapState({
+         currentCity:'city'
+       })
     },
     mounted() {
       this.scroll = new Bscroll(this.$refs.wrapper)//this.$refs.wrapper获得在模板绑定ref属性的Dom元素
@@ -46,7 +51,18 @@
         let element=this.$refs[this.letter][0];//获取点中字母与左侧列表区域对应字母的Dom元素
         this.scroll.scrollToElement(element)//该方法可以使右侧点中字母，左侧滚动到对应字母区域
       }
-      }
+    },
+  methods:{
+    CityClick(city){
+       //this.$router.push('/')//Vue Router的编程试导航,此时跳回首页
+      this.changeCity(city);//上一句注释的功能与该句一样,但该写法简化了,因为下面 ...mapMutations(['changeCity']),changeCity方法写在vuex的index.js下mutations里
+      this.$router.push('/')
+     
+    
+    },
+     ...mapMutations(['changeCity'])//...mapMutation把本组件的mutations映射到changeCity方法里(changeCity在mutations里)
+
+  }
   }
 </script>
 

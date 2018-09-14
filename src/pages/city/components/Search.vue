@@ -5,7 +5,7 @@
     </div>
     <div class="search-content" v-show="keyWord">
         <ul>
-            <li class="search-item border-bottom" v-for="item in searchList" :key="item.id">{{item.name}}</li>
+            <li class="search-item border-bottom" v-for="item in searchList" :key="item.id" @click="CityClick(item.name)">{{item.name}}</li>
             <li class="search-item border-bottom" v-show="!searchList.length">没有找到匹配得选项</li>
         </ul>
     </div>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+    import {mapMutations } from 'vuex';
     export default {
         name: 'CitySearch',
         props:{
@@ -40,7 +41,17 @@
                 }
                 this.searchList=result
             }
-        }
+        },
+         methods:{
+          CityClick(city){
+            //this.$router.push('/')//Vue Router的编程试导航,此时跳回首页
+            this.changeCity(city);//上一句注释的功能与该句一样,但该写法简化了,因为下面 ...mapMutations(['changeCity'])
+            this.$router.push('/')
+     
+    
+    },
+         ...mapMutations(['changeCity'])//...mapMutation把本组件的mutations映射到changeCity方法里(changeCity在mutations里)
+  }
 
     }
 </script>
