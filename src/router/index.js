@@ -2,6 +2,7 @@ import Vue from 'vue' //引入Vue
 import Router from 'vue-router' //引入vue-router
 import Home from '@/pages/home/Home' //引入Home组件
 import City from '@/pages/city/City'
+import Details from '@/pages/Details/Details'
 
 
 Vue.use(Router) //Vue全局使用Router
@@ -21,7 +22,14 @@ export default new Router({
        path:"/city",
        name:"City",
        component:City
-     }
+     },{
+      path:"/details/:id",
+      name:"Details",
+      component:Details
+    }
     
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {//这将简单地使页面滚动到所有路线导航的顶部。
+    return { x: 0, y: 0 }
+  }
 })
