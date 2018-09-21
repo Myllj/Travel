@@ -8,7 +8,7 @@
       tag="li"
       v-for="item in RecommendList"
       :key="item.id"
-      :to='"/details/"+item.id'>
+      :to="{name:'Details',params:{id:item.id}}">  <!-- 跳到Details页面(Details是路由里定义的name值),并传个参数id过去 -->
         <img class="item-img"
              :src="item.imgUrl">
         <div class="item-info">
