@@ -52,7 +52,7 @@
     },
          ...mapMutations(['changeCity'])//...mapMutation把本组件的mutations映射到changeCity方法里(changeCity在mutations里)
   }
-aa
+
     }
 </script>
 
