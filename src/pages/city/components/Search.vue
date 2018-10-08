@@ -47,7 +47,7 @@
             //this.$router.push('/')//Vue Router的编程试导航,此时跳回首页
             this.changeCity(city);//上一句注释的功能与该句一样,但该写法简化了,因为下面 ...mapMutations(['changeCity'])
             this.$router.push('/')
-     aa
+     
     
     },
          ...mapMutations(['changeCity'])//...mapMutation把本组件的mutations映射到changeCity方法里(changeCity在mutations里)
